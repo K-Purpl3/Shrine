@@ -1,9 +1,13 @@
 package com.example.shrine
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shrine.network.ImageRequester
 import com.example.shrine.network.ProductEntry
+
+import com.google.codelabs.mdc.kotlin.shrine.network.ProductEntry
 
 /**
  * Adapter used to show a simple grid of products.
@@ -16,10 +20,17 @@ class ProductCardRecyclerViewAdapter(private val productList: List<ProductEntry>
     }
 
     override fun onBindViewHolder(holder: ProductCardViewHolder, position: Int) {
-        // TODO: Put ViewHolder binding code here in MDC-102
+        if (position < productList.size) {
+            val product = productList[position]
+            holder.productTitle.text = product.title
+            holder.productPrice.text = product.price
+            ImageRequester.setImageFromUrl(holder.productImage, product.url)
+        }
     }
+
 
     override fun getItemCount(): Int {
         return productList.size
     }
 }
+
