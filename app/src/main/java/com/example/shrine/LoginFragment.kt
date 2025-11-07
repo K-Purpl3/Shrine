@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
+private val LoginFragment.password_text_input: Any
+private val LoginFragment.password_edit_text: Any
+private val View.password_edit_text: Any
+
 /**
  * Fragment representing the login screen for Shrine.
  */
